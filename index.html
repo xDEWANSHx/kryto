@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <!-- Primary SEO Meta Tags -->
+  <title>Kryto Studios — Premium Digital Portfolio Studio in Chhattisgarh</title>
+  <meta name="description" content="Kryto Studios is a cinematic digital design studio based in Ambikapur, Chhattisgarh. We deliver custom high-performance web development, mobile applications, modern UI/UX redesigns, and custom enterprise software.">
+  <meta name="keywords" content="Kryto Studios, Web Development Ambikapur, Mobile App Development, UI UX Redesign, Video Editing Chhattisgarh, Srijan Institute Ambikapur, Enterprise software Ambikapur">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://krytostudios.com/">
+  <meta property="og:title" content="Kryto Studios — Premium Digital Portfolio Studio">
+  <meta property="og:description" content="Cinematic digital development and design. We build high-performance web solutions, mobile apps, and custom enterprise management systems.">
+  <meta property="og:image" content="assets/images/og-image.jpg">
+
+  <!-- Leaflet CSS for Custom Map Layout -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+
+  <!-- Design System & Section Stylesheets -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ================= SECTION 1: HEADER & NAVIGATION ================= -->
+  <header id="sticky-header">
+    <div class="nav-container">
+      <a href="#hero" class="logo" id="logo-branding">
+        Kryto<span>Studios</span>
+      </a>
+      
+      <nav class="nav-links">
+        <a href="#hero" class="nav-link active">Home</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#case-study" class="nav-link">Case Study</a>
+        <a href="#work" class="nav-link">Work</a>
+        <a href="#process" class="nav-link">Process</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-cta">
+        <a href="#contact" class="btn btn-primary btn-sm">Let's Talk</a>
+      </div>
+
+      <button class="hamburger" aria-label="Toggle Navigation Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Full-Screen Overlay Menu -->
+  <div class="mobile-nav-overlay">
+    <nav class="mobile-nav-links">
+      <a href="#hero" class="mobile-nav-link">Home</a>
+      <a href="#services" class="mobile-nav-link">Services</a>
+      <a href="#case-study" class="mobile-nav-link">Case Study</a>
+      <a href="#work" class="mobile-nav-link">Work</a>
+      <a href="#process" class="mobile-nav-link">Process</a>
+      <a href="#about" class="mobile-nav-link">About</a>
+      <a href="#contact" class="mobile-nav-link">Contact</a>
+    </nav>
+    <a href="#contact" class="btn btn-primary">Let's Talk</a>
+  </div>
+
+  <!-- ================= SECTION 2: HERO SECTION ================= -->
+  <section id="hero">
+    <!-- WebGL Rendering Canvas -->
+    <canvas id="hero-canvas"></canvas>
+    
+    <div class="hero-overlay">
+      <span class="hero-tag">[ Digital Studio ]</span>
+      <h1 class="hero-title">We Build Digital<br>Experiences That <span>Convert.</span></h1>
+      <p class="hero-subtitle">Web • App • Design • Media — Handcrafted enterprise software and modern client portals trusted across Ambikapur, Chhattisgarh.</p>
+      
+      <div class="hero-actions">
+        <a href="#work" class="btn btn-primary">See Our Work <i data-lucide="arrow-down"></i></a>
+        <a href="#booking" class="btn btn-outline book-call-trigger">Book a Call <i data-lucide="calendar"></i></a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hero-stat-item">
+          <span class="hero-stat-number" data-target="12" data-suffix="+">12+</span>
+          <span class="hero-stat-label">Projects Completed</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat-item">
+          <span class="hero-stat-number" data-target="100" data-suffix="%">100%</span>
+          <span class="hero-stat-label">Client Satisfaction</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat-item">
+          <span class="hero-stat-number" data-target="3" data-suffix="+">3+</span>
+          <span class="hero-stat-label">Years Experience</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bounce scroll indicator -->
+    <div class="scroll-indicator">
+      <span>Scroll Down</span>
+      <i data-lucide="chevron-down" class="scroll-arrow"></i>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 3: TRUST STRIP (MARQUEE) ================= -->
+  <div class="trust-strip">
+    <div class="trust-marquee">
+      <div class="trust-marquee-content">
+        <div class="marquee-item"><i data-lucide="award"></i> Srijan Institute Ambikapur</div>
+        <div class="marquee-divider">|</div>
+        <div class="marquee-item"><i data-lucide="database"></i> <span class="highlight">12+</span> Projects Delivered</div>
+        <div class="marquee-divider">|</div>
+        <div class="marquee-item"><i data-lucide="map-pin"></i> Chhattisgarh's Premium Studio</div>
+        <div class="marquee-divider">|</div>
+        <div class="marquee-item"><i data-lucide="cpu"></i> Web • App • Design • Media</div>
+        <div class="marquee-divider">|</div>
+        <div class="marquee-item"><i data-lucide="shield-check"></i> Trusted Since 2021</div>
+        <div class="marquee-divider">|</div>
+      </div>
+      <!-- Duplicate content to loop infinitely without screen blanking -->
+      <div class="trust-marquee-content">
+        <div class="marquee-item"><i data-lucide="award"></i> Srijan Institute Ambikapur</div>
+        <div class="marquee-divider">|</div>
+        <div class="marquee-item"><i data-lucide="database"></i> <span class="highlight">12+</span> Projects Delivered</div>
+        <div class="marquee-divider">|</div>
+        <div class="marquee-item"><i data-lucide="map-pin"></i> Chhattisgarh's Premium Studio</div>
+        <div class="marquee-divider">|</div>
+        <div class="marquee-item"><i data-lucide="cpu"></i> Web • App • Design • Media</div>
+        <div class="marquee-divider">|</div>
+        <div class="marquee-item"><i data-lucide="shield-check"></i> Trusted Since 2021</div>
+        <div class="marquee-divider">|</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= SECTION 4: SERVICES SECTION ================= -->
+  <section id="services">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">What We Build</span>
+        <h2 class="section-title">Handcrafted Digital Solutions</h2>
+        <p class="section-subtitle">End-to-end development, sleek interfaces, and highly scalable code architecture built custom for your business.</p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Web Development Card -->
+        <div class="service-card" data-tilt>
+          <div class="service-icon"><i data-lucide="globe" style="width: 48px; height: 48px;"></i></div>
+          <h3 class="service-title">Web Development</h3>
+          <p class="service-desc">Custom responsive websites and complex full-stack web applications engineered for lightning speed and conversion.</p>
+          <div class="service-features">
+            <div class="service-feature-item"><i data-lucide="check"></i> Responsive Web Layouts</div>
+            <div class="service-feature-item"><i data-lucide="check"></i> Dynamic API Connections</div>
+            <div class="service-feature-item"><i data-lucide="check"></i> 90+ Lighthouse SEO Score</div>
+          </div>
+          <a href="#work" class="service-link">Explore Portfolio <i data-lucide="arrow-right"></i></a>
+        </div>
+
+        <!-- App Development Card -->
+        <div class="service-card" data-tilt>
+          <div class="service-icon"><i data-lucide="smartphone" style="width: 48px; height: 48px; color: var(--accent-secondary);"></i></div>
+          <h3 class="service-title">App Development</h3>
+          <p class="service-desc">Native iOS and Android mobile solutions built on modern architectures that keep users engaged every single day.</p>
+          <div class="service-features">
+            <div class="service-feature-item"><i data-lucide="check"></i> Cross-Platform Flutter/React Native</div>
+            <div class="service-feature-item"><i data-lucide="check"></i> Intuitive Interactive Navigation</div>
+            <div class="service-feature-item"><i data-lucide="check"></i> Real-time Push Notifications</div>
+          </div>
+          <a href="#work" class="service-link">Explore Portfolio <i data-lucide="arrow-right"></i></a>
+        </div>
+
+        <!-- Redesigning Card -->
+        <div class="service-card" data-tilt>
+          <div class="service-icon"><i data-lucide="layers" style="width: 48px; height: 48px; color: var(--accent-tertiary);"></i></div>
+          <h3 class="service-title">UI/UX Redesigning</h3>
+          <p class="service-desc">Converting outdated software interfaces into premium, user-friendly, high-conversion layouts.</p>
+          <div class="service-features">
+            <div class="service-feature-item"><i data-lucide="check"></i> Thorough Wireframe UI Audits</div>
+            <div class="service-feature-item"><i data-lucide="check"></i> Elegant Premium Typography</div>
+            <div class="service-feature-item"><i data-lucide="check"></i> A/B Tested Conversions</div>
+          </div>
+          <a href="#work" class="service-link">Explore Portfolio <i data-lucide="arrow-right"></i></a>
+        </div>
+
+        <!-- Photo Editing Card -->
+        <div class="service-card" data-tilt>
+          <div class="service-icon"><i data-lucide="camera" style="width: 48px; height: 48px;"></i></div>
+          <h3 class="service-title">Photo Editing</h3>
+          <p class="service-desc">High-end skin retouching, color correction, and product image compositing ready for publication.</p>
+          <div class="service-features">
+            <div class="service-feature-item"><i data-lucide="check"></i> Frequency Separation Retouch</div>
+            <div class="service-feature-item"><i data-lucide="check"></i> Tailored Color Grading</div>
+            <div class="service-feature-item"><i data-lucide="check"></i> Background Mask Manipulation</div>
+          </div>
+          <a href="#work" class="service-link">Explore Portfolio <i data-lucide="arrow-right"></i></a>
+        </div>
+
+        <!-- Video Editing Card -->
+        <div class="service-card" data-tilt>
+          <div class="service-icon"><i data-lucide="film" style="width: 48px; height: 48px; color: var(--accent-secondary);"></i></div>
+          <h3 class="service-title">Video Editing</h3>
+          <p class="service-desc">Cinematic dynamic editing, motion graphics, audio mastering, and viral-ready YouTube thumbnail design.</p>
+          <div class="service-features">
+            <div class="service-feature-item"><i data-lucide="check"></i> Commercial Sound Mixing (SFX)</div>
+            <div class="service-feature-item"><i data-lucide="check"></i> 4K Footage Color Correction</div>
+            <div class="service-feature-item"><i data-lucide="check"></i> Kinetic Typography Graphics</div>
+          </div>
+          <a href="#work" class="service-link">Explore Portfolio <i data-lucide="arrow-right"></i></a>
+        </div>
+
+        <!-- Enterprise Management Systems -->
+        <div class="service-card" data-tilt>
+          <div class="service-icon"><i data-lucide="database" style="width: 48px; height: 48px; color: var(--accent-tertiary);"></i></div>
+          <h3 class="service-title">Enterprise Systems</h3>
+          <p class="service-desc">Custom administration, fee trackers, grade modules, and employee tracking systems built for scale.</p>
+          <div class="service-features">
+            <div class="service-feature-item"><i data-lucide="check"></i> Secure Authentication Layers</div>
+            <div class="service-feature-item"><i data-lucide="check"></i> Analytical Dashboard Charts</div>
+            <div class="service-feature-item"><i data-lucide="check"></i> Excel/PDF Report Parsers</div>
+          </div>
+          <a href="#case-study" class="service-link">Explore Case Study <i data-lucide="arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 5: CASE STUDY (PINNED HORIZONTAL SCROLL) ================= -->
+  <section id="case-study">
+    <div class="pinned-container">
+      <div class="case-study-header">
+        <span class="section-label">Case Study (Crown Jewel)</span>
+        <h2 style="font-size: 32px; color:#fff;">Srijan Institute Ambikapur</h2>
+      </div>
+
+      <!-- Horizontal scrolling track containing 4 stages -->
+      <div class="horizontal-scroll-track">
+        
+        <!-- Panel 1: The Problem -->
+        <div class="case-panel panel-problem">
+          <div class="problem-content">
+            <span class="badge" style="margin-bottom: 24px;">The Challenge</span>
+            <p class="problem-quote">"Managing 500+ students' fees, marks, salaries, and files manually on physical paper was costing us hours every day, introducing human accounting errors, and causing administrative delays."</p>
+            <p class="problem-attribution">— Administration Management, Srijan Institute, Ambikapur</p>
+          </div>
+        </div>
+
+        <!-- Panel 2: What We Built -->
+        <div class="case-panel panel-solution">
+          <div class="solution-grid">
+            <div class="solution-text">
+              <span class="badge badge-secondary" style="margin-bottom: 24px;">The Platform</span>
+              <h3 style="font-size: 36px; color:#fff; margin-bottom:16px;">Comprehensive Administrative ERP</h3>
+              <p style="color:var(--text-secondary); margin-bottom:24px;">We designed and implemented a bespoke administrative ecosystem that digitizes operational workflows into a single role-based portal.</p>
+            </div>
+            <div class="solution-features">
+              <div class="feature-check-list">
+                <div class="feature-check-item"><i data-lucide="check-circle-2"></i> Student Fee Tracking</div>
+                <div class="feature-check-item"><i data-lucide="check-circle-2"></i> Grades & Marks Logs</div>
+                <div class="feature-check-item"><i data-lucide="check-circle-2"></i> Student Bio-Data Records</div>
+                <div class="feature-check-item"><i data-lucide="check-circle-2"></i> Teacher Profiles Database</div>
+                <div class="feature-check-item"><i data-lucide="check-circle-2"></i> Salary Processing Engine</div>
+                <div class="feature-check-item"><i data-lucide="check-circle-2"></i> Office Expense Trackers</div>
+                <div class="feature-check-item"><i data-lucide="check-circle-2"></i> Admin Analytics Panel</div>
+                <div class="feature-check-item"><i data-lucide="check-circle-2"></i> Secure Login Portals</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 3: The Dashboard Preview -->
+        <div class="case-panel panel-preview">
+          <div class="preview-content">
+            <h3 style="margin-bottom: 20px; color:#fff;">Interactive Admin Panel Mockup</h3>
+            
+            <div class="browser-mockup">
+              <div class="browser-header">
+                <div class="browser-dots">
+                  <span class="browser-dot dot-red"></span>
+                  <span class="browser-dot dot-yellow"></span>
+                  <span class="browser-dot dot-green"></span>
+                </div>
+                <div class="browser-address">srijan-institute-erp.krytostudios.com/dashboard</div>
+                <div style="width: 48px;"></div>
+              </div>
+              <div class="browser-body">
+                <!-- Sidebar dashboard mock -->
+                <div class="mock-sidebar">
+                  <div class="mock-side-logo">SRIJAN ERP</div>
+                  <div class="mock-side-item active"></div>
+                  <div class="mock-side-item"></div>
+                  <div class="mock-side-item"></div>
+                  <div class="mock-side-item"></div>
+                </div>
+                <!-- Main panel mockup content -->
+                <div class="mock-main">
+                  <div class="mock-stats">
+                    <div class="mock-stat-card">
+                      <div class="mock-stat-num">500+</div>
+                      <div class="mock-stat-lbl">Active Students</div>
+                    </div>
+                    <div class="mock-stat-card">
+                      <div class="mock-stat-num">8</div>
+                      <div class="mock-stat-lbl">Integrated Modules</div>
+                    </div>
+                    <div class="mock-stat-card">
+                      <div class="mock-stat-num">98%</div>
+                      <div class="mock-stat-lbl">On-time Fees</div>
+                    </div>
+                    <div class="mock-stat-card">
+                      <div class="mock-stat-num">12</div>
+                      <div class="mock-stat-lbl">Active Teachers</div>
+                    </div>
+                  </div>
+                  <div class="mock-content-area">
+                    <div class="mock-table">
+                      <div class="mock-row" style="font-weight: bold; border-bottom: 2px solid var(--border-color)">
+                        <span>Student Name</span><span>Class</span><span>Fee Status</span>
+                      </div>
+                      <div class="mock-row"><span>Rohan Dewangan</span><span>Tally Prime</span><span style="color:var(--accent-secondary)">PAID</span></div>
+                      <div class="mock-row"><span>Priya Sharma</span><span>Python Web</span><span style="color:var(--accent-secondary)">PAID</span></div>
+                      <div class="mock-row"><span>Amit Yadav</span><span>Basic App Dev</span><span style="color:var(--accent-tertiary)">PENDING</span></div>
+                    </div>
+                    <div class="mock-chart">
+                      <span class="mock-chart-title">Collection Analytics</span>
+                      <div class="mock-chart-bars">
+                        <div class="mock-chart-bar" style="height: 40%"></div>
+                        <div class="mock-chart-bar" style="height: 65%"></div>
+                        <div class="mock-chart-bar" style="height: 85%"></div>
+                        <div class="mock-chart-bar" style="height: 98%"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+
+        <!-- Panel 4: The Results -->
+        <div class="case-panel panel-results">
+          <div class="results-content">
+            <h3 style="color:#fff;">Transformation Results</h3>
+            
+            <div class="results-grid">
+              <div class="results-card">
+                <div class="results-num" data-target="500" data-suffix="+">0+</div>
+                <div class="results-lbl">Students Digitally Tracked</div>
+              </div>
+              <div class="results-card">
+                <div class="results-num" data-target="8" data-suffix=" Modules">0 Modules</div>
+                <div class="results-lbl">Delivered & Fully Synced</div>
+              </div>
+              <div class="results-card">
+                <div class="results-num" data-target="60" data-suffix="%">0%</div>
+                <div class="results-lbl">Time Saved on Weekly Admin Tasks</div>
+              </div>
+            </div>
+
+            <div class="results-quote-wrap">
+              <div class="results-stars">
+                <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+              </div>
+              <p style="color:var(--text-secondary); max-width:600px; margin: 0 auto 20px auto; font-style:italic;">"The custom ERP has transformed our administration. Fee tracking that used to take days is now done with a click."</p>
+              <a href="#contact" class="btn btn-primary">Request Custom Development <i data-lucide="arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 6: WORK GALLERY SECTION ================= -->
+  <section id="work">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Our Work</span>
+        <h2 class="section-title">Selected Case Projects</h2>
+        <p class="section-subtitle">A collection of custom applications, conversion-driven websites, and high-quality cinematic edits.</p>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="gallery-tabs">
+        <span class="pill pill-active" data-filter="all">All Projects</span>
+        <span class="pill" data-filter="web">Websites</span>
+        <span class="pill" data-filter="app">Mobile Apps</span>
+        <span class="pill" data-filter="photo-video">Photo & Video</span>
+        <span class="pill" data-filter="systems">Enterprise ERPs</span>
+      </div>
+
+      <!-- CSS Masonry Grid -->
+      <div class="gallery-grid">
+        <!-- 1. Srijan Institute ERP -->
+        <div class="gallery-card" data-category="systems">
+          <div class="gallery-img-wrap">
+            <div class="gallery-img-placeholder" style="background: linear-gradient(135deg, #0d2218, #1a5c3a); height: 260px;">
+              <i data-lucide="database"></i>
+            </div>
+            <div class="gallery-overlay">
+              <span class="gallery-tag">Enterprise ERPs</span>
+              <h3 class="gallery-name">Srijan Institute ERP</h3>
+              <button class="gallery-view">View Details <i data-lucide="eye"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. School Website -->
+        <div class="gallery-card" data-category="web">
+          <div class="gallery-img-wrap">
+            <div class="gallery-img-placeholder" style="background: linear-gradient(135deg, #0d1b2a, #1a3a5c); height: 200px;">
+              <i data-lucide="globe"></i>
+            </div>
+            <div class="gallery-overlay">
+              <span class="gallery-tag">Websites</span>
+              <h3 class="gallery-name">School Website — Ambikapur</h3>
+              <button class="gallery-view">View Details <i data-lucide="eye"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Restaurant Landing Page -->
+        <div class="gallery-card" data-category="web">
+          <div class="gallery-img-wrap">
+            <div class="gallery-img-placeholder" style="background: linear-gradient(135deg, #0d1b2a, #1a3a5c); height: 240px;">
+              <i data-lucide="utensils"></i>
+            </div>
+            <div class="gallery-overlay">
+              <span class="gallery-tag">Websites</span>
+              <h3 class="gallery-name">Restaurant Landing Page</h3>
+              <button class="gallery-view">View Details <i data-lucide="eye"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Fitness App UI -->
+        <div class="gallery-card" data-category="app">
+          <div class="gallery-img-wrap">
+            <div class="gallery-img-placeholder" style="background: linear-gradient(135deg, #1a0d2e, #3d1a6b); height: 280px;">
+              <i data-lucide="smartphone"></i>
+            </div>
+            <div class="gallery-overlay">
+              <span class="gallery-tag">Mobile Apps</span>
+              <h3 class="gallery-name">Fitness App UI</h3>
+              <button class="gallery-view">View Details <i data-lucide="eye"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. E-commerce App -->
+        <div class="gallery-card" data-category="app">
+          <div class="gallery-img-wrap">
+            <div class="gallery-img-placeholder" style="background: linear-gradient(135deg, #1a0d2e, #3d1a6b); height: 220px;">
+              <i data-lucide="shopping-bag"></i>
+            </div>
+            <div class="gallery-overlay">
+              <span class="gallery-tag">Mobile Apps</span>
+              <h3 class="gallery-name">E-commerce App</h3>
+              <button class="gallery-view">View Details <i data-lucide="eye"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Real Estate Website -->
+        <div class="gallery-card" data-category="web">
+          <div class="gallery-img-wrap">
+            <div class="gallery-img-placeholder" style="background: linear-gradient(135deg, #0d1b2a, #1a3a5c); height: 230px;">
+              <i data-lucide="home"></i>
+            </div>
+            <div class="gallery-overlay">
+              <span class="gallery-tag">Websites</span>
+              <h3 class="gallery-name">Real Estate Website</h3>
+              <button class="gallery-view">View Details <i data-lucide="eye"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Wedding Photography Edit -->
+        <div class="gallery-card" data-category="photo-video">
+          <div class="gallery-img-wrap">
+            <div class="gallery-img-placeholder" style="background: linear-gradient(135deg, #1a0a00, #5c2a00); height: 210px;">
+              <i data-lucide="camera"></i>
+            </div>
+            <div class="gallery-overlay">
+              <span class="gallery-tag">Photo & Video</span>
+              <h3 class="gallery-name">Wedding Photography Edit</h3>
+              <button class="gallery-view">View Details <i data-lucide="eye"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. Product Commercial -->
+        <div class="gallery-card" data-category="photo-video">
+          <div class="gallery-img-wrap">
+            <div class="gallery-img-placeholder" style="background: linear-gradient(135deg, #1a0a00, #5c2a00); height: 250px;">
+              <i data-lucide="film"></i>
+            </div>
+            <div class="gallery-overlay">
+              <span class="gallery-tag">Photo & Video</span>
+              <h3 class="gallery-name">Product Commercial</h3>
+              <button class="gallery-view">View Details <i data-lucide="eye"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9. Portrait Retouch -->
+        <div class="gallery-card" data-category="photo-video">
+          <div class="gallery-img-wrap">
+            <div class="gallery-img-placeholder" style="background: linear-gradient(135deg, #1a0a00, #5c2a00); height: 200px;">
+              <i data-lucide="smile"></i>
+            </div>
+            <div class="gallery-overlay">
+              <span class="gallery-tag">Photo & Video</span>
+              <h3 class="gallery-name">Portrait Retouch</h3>
+              <button class="gallery-view">View Details <i data-lucide="eye"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10. NGO Website -->
+        <div class="gallery-card" data-category="web">
+          <div class="gallery-img-wrap">
+            <div class="gallery-img-placeholder" style="background: linear-gradient(135deg, #0d1b2a, #1a3a5c); height: 240px;">
+              <i data-lucide="heart"></i>
+            </div>
+            <div class="gallery-overlay">
+              <span class="gallery-tag">Websites</span>
+              <h3 class="gallery-name">NGO Website</h3>
+              <button class="gallery-view">View Details <i data-lucide="eye"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 11. Inventory System -->
+        <div class="gallery-card" data-category="systems">
+          <div class="gallery-img-wrap">
+            <div class="gallery-img-placeholder" style="background: linear-gradient(135deg, #0d2218, #1a5c3a); height: 260px;">
+              <i data-lucide="boxes"></i>
+            </div>
+            <div class="gallery-overlay">
+              <span class="gallery-tag">Enterprise ERPs</span>
+              <h3 class="gallery-name">Inventory System</h3>
+              <button class="gallery-view">View Details <i data-lucide="eye"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 12. YouTube Channel Thumbnails -->
+        <div class="gallery-card" data-category="photo-video">
+          <div class="gallery-img-wrap">
+            <div class="gallery-img-placeholder" style="background: linear-gradient(135deg, #1a0a00, #5c2a00); height: 210px;">
+              <i data-lucide="image"></i>
+            </div>
+            <div class="gallery-overlay">
+              <span class="gallery-tag">Photo & Video</span>
+              <h3 class="gallery-name">YouTube Channel Thumbnails</h3>
+              <button class="gallery-view">View Details <i data-lucide="eye"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal Backdrop Overlay -->
+  <div class="lightbox-modal" id="lightbox">
+    <div class="lightbox-close"><i data-lucide="x" style="width: 32px; height: 32px;"></i></div>
+    <div class="lightbox-content"></div>
+  </div>
+
+  <!-- ================= SECTION 7: PROCESS TIMELINE (HOW WE WORK) ================= -->
+  <section id="process">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Our Process</span>
+        <h2 class="section-title">How We Work</h2>
+        <p class="section-subtitle">A rigid, structured phase workflow to go from high-level whiteboard concept to high-performance launch.</p>
+      </div>
+
+      <div class="timeline-container">
+        <!-- Scroll-fillable progress line -->
+        <div class="timeline-line">
+          <div class="timeline-line-fill"></div>
+        </div>
+
+        <!-- Step 1: Discover -->
+        <div class="timeline-step">
+          <div class="timeline-content-wrap">
+            <div class="service-card glow-effect">
+              <span style="font-size: 32px; font-weight: 700; color:var(--text-muted); font-family:var(--font-heading)">01</span>
+              <h3 style="font-size: 20px; color:#fff; margin:12px 0 8px 0; display:flex; align-items:center; gap:10px;"><i data-lucide="search" style="color:var(--accent-primary)"></i> Discover</h3>
+              <p style="font-size: 14px; color:var(--text-secondary); margin-bottom:16px;">We analyze your competitors, dive deep into your workflow requirements, and map your targeted audience before designing a single pixel.</p>
+              <div class="about-badges">
+                <span class="badge">Competitor Audits</span>
+                <span class="badge">SOW Documents</span>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-node">1</div>
+          <div class="timeline-spacer"></div>
+        </div>
+
+        <!-- Step 2: Design -->
+        <div class="timeline-step timeline-step-left">
+          <div class="timeline-content-wrap">
+            <div class="service-card glow-effect">
+              <span style="font-size: 32px; font-weight: 700; color:var(--text-muted); font-family:var(--font-heading)">02</span>
+              <h3 style="font-size: 20px; color:#fff; margin:12px 0 8px 0; display:flex; align-items:center; gap:10px;"><i data-lucide="pen-tool" style="color:var(--accent-secondary)"></i> Design</h3>
+              <p style="font-size: 14px; color:var(--text-secondary); margin-bottom:16px;">We engineer high-fidelity UI wireframes and click-prototypes, gathering your comprehensive design sign-off on layouts and assets.</p>
+              <div class="about-badges">
+                <span class="badge">Figma Prototypes</span>
+                <span class="badge">Branding Guides</span>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-node">2</div>
+          <div class="timeline-spacer"></div>
+        </div>
+
+        <!-- Step 3: Develop -->
+        <div class="timeline-step">
+          <div class="timeline-content-wrap">
+            <div class="service-card glow-effect">
+              <span style="font-size: 32px; font-weight: 700; color:var(--text-muted); font-family:var(--font-heading)">03</span>
+              <h3 style="font-size: 20px; color:#fff; margin:12px 0 8px 0; display:flex; align-items:center; gap:10px;"><i data-lucide="code-2" style="color:var(--accent-tertiary)"></i> Develop</h3>
+              <p style="font-size: 14px; color:var(--text-secondary); margin-bottom:16px;">We write semantic, production-ready source code using robust, performant paradigms. No shortcuts, templates, or heavy wrappers.</p>
+              <div class="about-badges">
+                <span class="badge">Vanilla ES6+</span>
+                <span class="badge">Secure Database</span>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-node">3</div>
+          <div class="timeline-spacer"></div>
+        </div>
+
+        <!-- Step 4: Test -->
+        <div class="timeline-step timeline-step-left">
+          <div class="timeline-content-wrap">
+            <div class="service-card glow-effect">
+              <span style="font-size: 32px; font-weight: 700; color:var(--text-muted); font-family:var(--font-heading)">04</span>
+              <h3 style="font-size: 20px; color:#fff; margin:12px 0 8px 0; display:flex; align-items:center; gap:10px;"><i data-lucide="shield-alert" style="color:var(--accent-primary)"></i> Test</h3>
+              <p style="font-size: 14px; color:var(--text-secondary); margin-bottom:16px;">We push code through cross-device testing, checking performance logs, validating form handling, and securing database access variables.</p>
+              <div class="about-badges">
+                <span class="badge">Cross-Browser</span>
+                <span class="badge">Load Tests</span>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-node">4</div>
+          <div class="timeline-spacer"></div>
+        </div>
+
+        <!-- Step 5: Deliver & Support -->
+        <div class="timeline-step">
+          <div class="timeline-content-wrap">
+            <div class="service-card glow-effect">
+              <span style="font-size: 32px; font-weight: 700; color:var(--text-muted); font-family:var(--font-heading)">05</span>
+              <h3 style="font-size: 20px; color:#fff; margin:12px 0 8px 0; display:flex; align-items:center; gap:10px;"><i data-lucide="send" style="color:var(--accent-secondary)"></i> Deliver & Support</h3>
+              <p style="font-size: 14px; color:var(--text-secondary); margin-bottom:16px;">Launch is just day one. We configure secure domain servers, optimize images, and provide persistent software monitoring resources.</p>
+              <div class="about-badges">
+                <span class="badge">Netlify / Vercel</span>
+                <span class="badge">Monthly Audits</span>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-node">5</div>
+          <div class="timeline-spacer"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 8: STATS COUNTER SECTION ================= -->
+  <section id="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number" data-target="12" data-suffix="+">0+</div>
+          <div class="stat-label">Projects Delivered</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" data-target="5" data-suffix="+">0+</div>
+          <div class="stat-label">Industries Served</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" data-target="500" data-suffix="+">0+</div>
+          <div class="stat-label">Managed Via Systems</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" data-target="100" data-suffix="%">0%</div>
+          <div class="stat-label">Satisfaction Rate</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 9: ABOUT KRYTO SECTION ================= -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-content">
+          <span class="section-label">[ About Us ]</span>
+          <h2 style="font-size: 40px; color:#fff; margin-bottom:20px;">We're a Studio That Actually Gives a Damn.</h2>
+          <div class="about-text">
+            <p class="about-p">Kryto Studios was founded in Ambikapur with a single core vision: local businesses and educational institutions in Chhattisgarh deserve premium, custom-coded software products, not generic templates.</p>
+            <p class="about-p">We have designed custom enterprise ERPs, school directories, mobile tracking applications, e-commerce landing pages, and commercial photography edits—delivering the same meticulous level of design excellence across all formats.</p>
+            <p class="about-p">When you partner with us, you are not a standard ticket number. You are collaborating with a focused team dedicated to writing clean source files, establishing premium visuals, and supporting your software for the long haul.</p>
+          </div>
+          <div class="about-badges">
+            <span class="pill">Honest Timelines</span>
+            <span class="pill">Clean Semantic Code</span>
+            <span class="pill">24/7 Client Support</span>
+          </div>
+        </div>
+
+        <div class="about-team-grid">
+          <!-- Member 1: Founder -->
+          <div class="team-card">
+            <div class="team-photo-placeholder" style="background: linear-gradient(135deg, #7c6ff7, #4ecb8d);">KS</div>
+            <h3 class="team-name">Kryto Lead</h3>
+            <span class="team-role">Founder & Lead Dev</span>
+            <p class="team-bio">Directs system architecture, codes full-stack backends, and designs 3D components.</p>
+          </div>
+          <!-- Member 2: Designer -->
+          <div class="team-card">
+            <div class="team-photo-placeholder" style="background: linear-gradient(135deg, #4ecb8d, #f07a3a);">UX</div>
+            <h3 class="team-name">Creative Lead</h3>
+            <span class="team-role">UI/UX Architect</span>
+            <p class="team-bio">Curates premium visual identity guides, typography choices, and click-prototypes.</p>
+          </div>
+          <!-- Member 3: Editor -->
+          <div class="team-card">
+            <div class="team-photo-placeholder" style="background: linear-gradient(135deg, #f07a3a, #7c6ff7);">VE</div>
+            <h3 class="team-name">Visual Lead</h3>
+            <span class="team-role">Cinematic Editor</span>
+            <p class="team-bio">Oversees photo skin-retouching, LUT color balances, and sound graphic syncs.</p>
+          </div>
+          <!-- Member 4: Support -->
+          <div class="team-card">
+            <div class="team-photo-placeholder" style="background: linear-gradient(135deg, #141414, #1e1e1e);">CS</div>
+            <h3 class="team-name">Support Lead</h3>
+            <span class="team-role">Client Care</span>
+            <p class="team-bio">Coordinates domain setups, handles feedback requests, and audits systems.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 10: TESTIMONIALS SECTION ================= -->
+  <section id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Testimonials</span>
+        <h2 class="section-title">What Our Clients Say</h2>
+        <p class="section-subtitle">Real feedback from local organizations and small businesses we've helped elevate.</p>
+      </div>
+
+      <div class="testimonials-carousel" id="testimonials-wrapper">
+        <div class="testimonials-track">
+          <!-- Slide 1 -->
+          <div class="testimonial-card-wrap">
+            <div class="testimonial-card">
+              <span class="testimonial-quote-icon">“</span>
+              <p class="testimonial-text">"Kryto Studios built our entire administrative ERP. Fees, grades, teacher salary records, reports—everything is fully digital, fast, and completely error-free. Highly recommended."</p>
+              <div class="testimonial-divider"></div>
+              <div class="testimonial-client">
+                <div class="testimonial-avatar-placeholder">SI</div>
+                <div class="testimonial-client-info">
+                  <h4>Administration Director</h4>
+                  <p>Srijan Institute, Ambikapur</p>
+                  <div class="testimonial-rating">
+                    <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Slide 2 -->
+          <div class="testimonial-card-wrap">
+            <div class="testimonial-card">
+              <span class="testimonial-quote-icon">“</span>
+              <p class="testimonial-text">"The speed of their web development is unparalleled. They redesigned our outdated catalog into an incredibly gorgeous, mobile-responsive page. The team is transparent and talented."</p>
+              <div class="testimonial-divider"></div>
+              <div class="testimonial-client">
+                <div class="testimonial-avatar-placeholder">SO</div>
+                <div class="testimonial-client-info">
+                  <h4>Business Owner</h4>
+                  <p>Ambikapur Commercials</p>
+                  <div class="testimonial-rating">
+                    <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Slide 3 -->
+          <div class="testimonial-card-wrap">
+            <div class="testimonial-card">
+              <span class="testimonial-quote-icon">“</span>
+              <p class="testimonial-text">"Their post-production quality is outstanding. The LUT color-correction and kinetic graphical pacing they added to our brand showreel increased our digital conversion rates instantly."</p>
+              <div class="testimonial-divider"></div>
+              <div class="testimonial-client">
+                <div class="testimonial-avatar-placeholder">MD</div>
+                <div class="testimonial-client-info">
+                  <h4>Marketing Lead</h4>
+                  <p>Chhattisgarh Brands</p>
+                  <div class="testimonial-rating">
+                    <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonials-controls">
+          <button class="testimonials-arrow" id="testimonials-prev-btn" aria-label="Previous Testimonial"><i data-lucide="arrow-left"></i></button>
+          <div class="testimonials-dots">
+            <span class="testimonials-dot active" data-index="0"></span>
+            <span class="testimonials-dot" data-index="1"></span>
+            <span class="testimonials-dot" data-index="2"></span>
+          </div>
+          <button class="testimonials-arrow" id="testimonials-next-btn" aria-label="Next Testimonial"><i data-lucide="arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 11: BOOK AN APPOINTMENT ================= -->
+  <section id="booking">
+    <div class="container">
+      <div class="booking-grid">
+        <div class="booking-info">
+          <span class="section-label">Get Started</span>
+          <h2>Let's Schedule a Call</h2>
+          <p style="color:var(--text-secondary);">30 minutes. No commitment. Just a conversation to map out your digital requirements and draft ballpark budgets.</p>
+          
+          <div class="booking-list">
+            <div class="booking-item">
+              <div class="booking-item-icon"><i data-lucide="clipboard-list"></i></div>
+              <div class="booking-item-text">
+                <h4>Requirement Scoping</h4>
+                <p>We'll analyze your project idea and review core features you need.</p>
+              </div>
+            </div>
+            <div class="booking-item">
+              <div class="booking-item-icon"><i data-lucide="hourglass"></i></div>
+              <div class="booking-item-text">
+                <h4>Timeline Scopes</h4>
+                <p>You'll receive a transparent, reliable blueprint estimate of development phases.</p>
+              </div>
+            </div>
+            <div class="booking-item">
+              <div class="booking-item-icon"><i data-lucide="sliders"></i></div>
+              <div class="booking-item-text">
+                <h4>Tech Suggestions</h4>
+                <p>We'll define the exact database, CSS layout framework, or API integrations best for you.</p>
+              </div>
+            </div>
+          </div>
+
+          <span class="badge badge-secondary"><i data-lucide="check"></i> Meticulous scoping. No sales pressure.</span>
+        </div>
+
+        <div class="booking-calendar">
+          <!-- Fallback placeholder when Calendly is unconfigured -->
+          <div class="calendly-placeholder" id="calendly-fallback-placeholder">
+            <i data-lucide="calendar-range"></i>
+            <h3>Book via Calendly</h3>
+            <p>Paste your Calendly scheduler URL in the <code>js/booking.js</code> configuration to launch the active inline booking calendar!</p>
+            <button class="btn btn-primary book-call-trigger">Try Popup Scheduler Demo</button>
+          </div>
+
+          <!-- Inline widget iframe -->
+          <div class="calendly-inline-widget" 
+               data-url="YOUR_CALENDLY_LINK_HERE" 
+               style="min-width:320px; height:600px; display:none;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 12: CONTACT US SECTION ================= -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Connect</span>
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">Reach out today. We respond to all formal scopes within 24 business hours.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-list">
+            <div class="contact-item">
+              <i data-lucide="map-pin" class="contact-icon"></i>
+              <div class="contact-text">
+                <h4>Location</h4>
+                <p>Ambikapur, Chhattisgarh, India</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i data-lucide="mail" class="contact-icon"></i>
+              <div class="contact-text">
+                <h4>Email Addresses</h4>
+                <p>contact@krytostudios.com <br><span style="color:var(--text-muted); font-size:12px;">(Update this placeholder in index.html)</span></p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i data-lucide="clock" class="contact-icon"></i>
+              <div class="contact-text">
+                <h4>Working Hours</h4>
+                <p>Mon–Sat, 10am–7pm IST</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-socials">
+            <h4>Follow Us</h4>
+            <div class="social-links">
+              <a href="https://instagram.com" target="_blank" class="social-link" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+              <a href="https://linkedin.com" target="_blank" class="social-link" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+              <a href="https://github.com" target="_blank" class="social-link" aria-label="GitHub"><i data-lucide="github"></i></a>
+              <a href="https://behance.net" target="_blank" class="social-link" aria-label="Behance"><i data-lucide="box"></i></a>
+            </div>
+          </div>
+
+          <!-- Embedded interactive Map -->
+          <div class="map-container">
+            <div id="map"></div>
+          </div>
+        </div>
+
+        <div class="form-container">
+          <!-- Formspree Endpoint Form -->
+          <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form" id="primary-contact-form">
+            <div class="input-group">
+              <label for="contact-name" class="form-label">Full Name *</label>
+              <input type="text" name="name" id="contact-name" class="form-control" placeholder="Rohan Dewangan" required>
+              <div class="error-message"></div>
+            </div>
+
+            <div class="form-row">
+              <div class="input-group">
+                <label for="contact-email" class="form-label">Email Address *</label>
+                <input type="email" name="email" id="contact-email" class="form-control" placeholder="rohan@example.com" required>
+                <div class="error-message"></div>
+              </div>
+              <div class="input-group">
+                <label for="contact-phone" class="form-label">Phone Number</label>
+                <input type="tel" name="phone" id="contact-phone" class="form-control" placeholder="+91 98765 43210">
+                <div class="error-message"></div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="input-group">
+                <label for="contact-service" class="form-label">Service Needed</label>
+                <select name="service" id="contact-service" class="form-control">
+                  <option value="Web Development">Web Development</option>
+                  <option value="App Development">App Development</option>
+                  <option value="UI/UX Redesigning">UI/UX Redesigning</option>
+                  <option value="Photo Editing">Photo Editing</option>
+                  <option value="Video Editing">Video Editing</option>
+                  <option value="Enterprise System">Enterprise System</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <div class="input-group">
+                <label for="contact-budget" class="form-label">Project Budget</label>
+                <select name="budget" id="contact-budget" class="form-control">
+                  <option value="Under ₹10,000">Under ₹10,000</option>
+                  <option value="₹10,000–₹50,000">₹10,000–₹50,000</option>
+                  <option value="₹50,000–₹2,00,000">₹50,000–₹2,00,000</option>
+                  <option value="₹2,00,000+">₹2,00,000+</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label for="contact-message" class="form-label">Message *</label>
+              <textarea name="message" id="contact-message" class="form-control" placeholder="Outline your system goals, integrations, and targeted delivery metrics..." required></textarea>
+              <div class="error-message"></div>
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="contact-submit-btn">Send Message <i data-lucide="send"></i></button>
+          </form>
+
+          <!-- Success overlay container -->
+          <div class="form-success-overlay" id="contact-success-overlay">
+            <div class="success-checkmark"><i data-lucide="check"></i></div>
+            <h3 class="success-title">Message Sent!</h3>
+            <p class="success-desc">Thank you for contacting Kryto Studios. Our lead developer will review your scope and get back to you within 24 business hours!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 13: SUPPORT & FEEDBACK ACCORDION ================= -->
+  <section id="support">
+    <div class="container">
+      <div class="support-accordion">
+        <div class="support-tabs">
+          <button class="support-tab-btn active" data-tab="report-issue-content">Report an Issue</button>
+          <button class="support-tab-btn" data-tab="leave-feedback-content">Leave Feedback</button>
+        </div>
+
+        <!-- Tab 1: Report an Issue -->
+        <div class="support-tab-content active" id="report-issue-content">
+          <div style="position:relative;">
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form" id="issue-report-form">
+              <input type="hidden" name="_subject" value="New Issue Report — Kryto Support">
+              
+              <div class="form-row">
+                <div class="input-group">
+                  <label for="issue-name" class="form-label">Your Name *</label>
+                  <input type="text" name="name" id="issue-name" class="form-control" placeholder="Rohan Dewangan" required>
+                </div>
+                <div class="input-group">
+                  <label for="issue-email" class="form-label">Email *</label>
+                  <input type="email" name="email" id="issue-email" class="form-control" placeholder="rohan@example.com" required>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="input-group">
+                  <label for="issue-service" class="form-label">Project / Service</label>
+                  <input type="text" name="service" id="issue-service" class="form-control" placeholder="e.g. Srijan Institute Admin System">
+                </div>
+                <div class="input-group">
+                  <label for="issue-type" class="form-label">Issue Type</label>
+                  <select name="type" id="issue-type" class="form-control">
+                    <option value="Bug / Error">Bug / Error</option>
+                    <option value="Delay">Delay</option>
+                    <option value="Communication">Communication</option>
+                    <option value="Quality Concern">Quality Concern</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label for="issue-urgency" class="form-label">Urgency Level</label>
+                <div class="urgency-group">
+                  <label class="urgency-label">
+                    <input type="radio" name="urgency" value="Low" checked> Low
+                  </label>
+                  <label class="urgency-label">
+                    <input type="radio" name="urgency" value="Medium"> Medium
+                  </label>
+                  <label class="urgency-label">
+                    <input type="radio" name="urgency" value="High"> High
+                  </label>
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label for="issue-desc" class="form-label">Describe the Issue in Detail * <span style="font-size:11px; color:var(--text-muted);">(Min. 100 characters)</span></label>
+                <textarea name="description" id="issue-desc" class="form-control" placeholder="Provide system error messages, browser specs, or sequence of actions leading to this bug..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-secondary">Submit Report <i data-lucide="alert-triangle"></i></button>
+            </form>
+
+            <div class="form-success-overlay" id="issue-success-overlay">
+              <div class="success-checkmark" style="border-color: var(--accent-primary); color:var(--accent-primary); box-shadow: 0 0 20px rgba(124, 111, 247, 0.2)">
+                <i data-lucide="alert-circle" style="color:var(--accent-primary)"></i>
+              </div>
+              <h3 class="success-title">Report Filed</h3>
+              <p class="success-desc">Your support ticket has been uploaded successfully. A developer will contact you via email shortly to resolve this bug.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: Leave Feedback -->
+        <div class="support-tab-content" id="leave-feedback-content">
+          <div style="position:relative;">
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form" id="feedback-submit-form">
+              <input type="hidden" name="_subject" value="New Client Feedback — Kryto Review">
+              
+              <div class="form-row">
+                <div class="input-group">
+                  <label for="feedback-name" class="form-label">Your Name *</label>
+                  <input type="text" name="name" id="feedback-name" class="form-control" placeholder="Rohan Dewangan" required>
+                </div>
+                <div class="input-group">
+                  <label class="form-label">Star Rating *</label>
+                  <div class="star-rating-input">
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                    <i data-lucide="star"></i>
+                  </div>
+                  <input type="hidden" name="rating" id="feedback-rating-value" value="0">
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label for="feedback-good" class="form-label">What did we do well?</label>
+                <textarea name="positive_feedback" id="feedback-good" class="form-control" placeholder="E.g. Clean design, prompt updates, highly scalable dashboard code..."></textarea>
+              </div>
+
+              <div class="input-group">
+                <label for="feedback-improve" class="form-label">What can we improve?</label>
+                <textarea name="improvement_suggestions" id="feedback-improve" class="form-control" placeholder="Help us do better next time..."></textarea>
+              </div>
+
+              <div class="input-group">
+                <label class="form-label">Would you recommend us?</label>
+                <div class="toggle-group">
+                  <span>No</span>
+                  <label class="toggle-switch">
+                    <input type="checkbox" name="recommend" value="Yes" checked>
+                    <span class="toggle-slider"></span>
+                  </label>
+                  <span>Yes</span>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary">Submit Feedback <i data-lucide="check-square"></i></button>
+            </form>
+
+            <div class="form-success-overlay" id="feedback-success-overlay">
+              <div class="success-checkmark" style="border-color: var(--accent-secondary); color:var(--accent-secondary); box-shadow: 0 0 20px rgba(78, 203, 141, 0.2)">
+                <i data-lucide="thumbs-up" style="color:var(--accent-secondary)"></i>
+              </div>
+              <h3 class="success-title">Feedback Submitted!</h3>
+              <p class="success-desc">Thank you for reviewing your experience. Your feedback guides our system enhancements and helps Kryto Studios maintain gold standards.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECTION 14: FLOATING ACCESSIBILITIES ================= -->
+  <!-- WhatsApp Float Chat -->
+  <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="whatsapp-float" id="whatsapp-float-widget">
+    <div class="whatsapp-ring"></div>
+    <i data-lucide="message-square"></i>
+    <span>Chat on WhatsApp</span>
+  </a>
+
+  <!-- Booking Trigger Float Button -->
+  <button class="book-call-float" aria-label="Book a Scheduling Call">
+    <i data-lucide="calendar"></i>
+  </button>
+
+  <!-- Scroll-to-Top Button -->
+  <button class="scroll-top-float" id="scroll-to-top-btn" aria-label="Scroll Back to Top">
+    <i data-lucide="arrow-up"></i>
+  </button>
+
+  <!-- ================= SECTION 15: FOOTER ================= -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand Col -->
+        <div class="footer-col">
+          <div class="footer-logo">Kryto<span>Studios</span></div>
+          <p>Building high-performance digital experiences that convert — from Ambikapur to everywhere.</p>
+          <div class="social-links">
+            <a href="https://instagram.com" target="_blank" class="social-link" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+            <a href="https://linkedin.com" target="_blank" class="social-link" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+            <a href="https://github.com" target="_blank" class="social-link" aria-label="GitHub"><i data-lucide="github"></i></a>
+            <a href="https://behance.net" target="_blank" class="social-link" aria-label="Behance"><i data-lucide="box"></i></a>
+          </div>
+        </div>
+
+        <!-- Services Col -->
+        <div class="footer-col">
+          <h4>Services</h4>
+          <nav class="footer-links">
+            <a href="#services" class="footer-link">Web Development</a>
+            <a href="#services" class="footer-link">App Development</a>
+            <a href="#services" class="footer-link">UI/UX Redesigning</a>
+            <a href="#services" class="footer-link">Photo & Video Editing</a>
+            <a href="#services" class="footer-link">Enterprise Systems</a>
+          </nav>
+        </div>
+
+        <!-- Company Col -->
+        <div class="footer-col">
+          <h4>Company</h4>
+          <nav class="footer-links">
+            <a href="#about" class="footer-link">About Us</a>
+            <a href="#work" class="footer-link">Our Work</a>
+            <a href="#process" class="footer-link">Process Timeline</a>
+            <a href="#testimonials" class="footer-link">Testimonials</a>
+            <a href="#booking" class="footer-link">Book a Call</a>
+          </nav>
+        </div>
+
+        <!-- Contact Col -->
+        <div class="footer-col">
+          <h4>Contact Info</h4>
+          <p style="margin-bottom: 8px;">Ambikapur, Chhattisgarh, India</p>
+          <p style="margin-bottom: 8px; color: var(--text-primary);">contact@krytostudios.com</p>
+          <p style="margin-bottom: 8px;">Mon–Sat, 10am–7pm IST</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span class="footer-copy">© 2026 Kryto Studios. All rights reserved.</span>
+        <div class="footer-legal-links">
+          <a href="#" class="footer-legal-link">Privacy Policy</a>
+          <a href="#" class="footer-legal-link">Terms of Service</a>
+        </div>
+        <span class="footer-credit">Built with <i data-lucide="heart" style="width: 12px; height: 12px; display:inline-block; vertical-align:middle;"></i> in Ambikapur</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= MASTER CDN DEPENDENCY SCRIPTS ================= -->
+  <!-- Three.js (WebGL 3D Orbit Scene Engine) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  
+  <!-- GSAP 3 & ScrollTrigger (Cinematic scroll timeline bindings) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  
+  <!-- Lenis Smooth Scroll Engine -->
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+  
+  <!-- VanillaTilt (Glaring service card interaction) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+  
+  <!-- Leaflet Map JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  
+  <!-- Lucide Icons Core CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize icons globally across the DOM markup
+    lucide.createIcons();
+  </script>
+
+  <!-- Calendly popup widget script (required for overlay triggers) -->
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" defer></script>
+
+  <!-- ================= CUSTOM LOCAL SCRIPTS ================= -->
+  <script src="js/cursor.js" defer></script>
+  <script src="js/lenis.js" defer></script>
+  <script src="js/hero.js" defer></script>
+  <script src="js/gsap-animations.js" defer></script>
+  <script src="js/tilt.js" defer></script>
+  <script src="js/gallery.js" defer></script>
+  <script src="js/counter.js" defer></script>
+  <script src="js/navbar.js" defer></script>
+  <script src="js/booking.js" defer></script>
+  <script src="js/feedback.js" defer></script>
+  <script src="js/contact.js" defer></script>
+
+  <script>
+    // --- SCROLL TO TOP UTILITY ---
+    const scrollTopBtn = document.getElementById('scroll-to-top-btn');
+    if (scrollTopBtn) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 600) {
+          scrollTopBtn.classList.add('active');
+        } else {
+          scrollTopBtn.classList.remove('active');
+        }
+      });
+      scrollTopBtn.addEventListener('click', () => {
+        if (window.lenis) {
+          window.lenis.scrollTo(0);
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

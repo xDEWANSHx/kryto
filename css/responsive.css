@@ -1,0 +1,378 @@
+/* css/responsive.css - Media Queries & Device Adaptation */
+
+/* --- TABLET BREAKPOINT (max-width: 1024px) --- */
+@media screen and (max-width: 1024px) {
+  .container {
+    padding: 0 32px;
+  }
+  
+  section {
+    padding: 80px 0;
+  }
+  
+  .section-title {
+    font-size: 38px;
+  }
+  
+  /* Navigation */
+  .nav-container {
+    padding: 0 32px;
+  }
+  
+  .nav-links {
+    gap: 20px;
+  }
+  
+  /* Hero */
+  .hero-overlay {
+    width: 60%;
+    left: 6%;
+  }
+  
+  .hero-title {
+    font-size: 48px;
+  }
+  
+  /* Services */
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Srijan Case Study (Keep horizontal, but adjust padding) */
+  .case-panel {
+    padding: 40px;
+  }
+  
+  .solution-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .browser-mockup {
+    height: 400px;
+  }
+  
+  /* Gallery */
+  .gallery-grid {
+    column-count: 2;
+  }
+  
+  /* Timeline */
+  .timeline-content-wrap {
+    width: 42%;
+  }
+  .timeline-spacer {
+    width: 42%;
+  }
+  
+  /* Stats Counter */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+  
+  /* About Kryto */
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  /* Testimonials */
+  .testimonial-card-wrap {
+    flex: 0 0 calc(50% - 12px);
+    max-width: calc(50% - 12px);
+  }
+  
+  /* Booking */
+  .booking-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  /* Contact */
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --- MOBILE BREAKPOINT (max-width: 640px) --- */
+@media screen and (max-width: 640px) {
+  .container {
+    padding: 0 20px;
+  }
+  
+  section {
+    padding: 60px 0;
+  }
+  
+  .section-title {
+    font-size: 32px;
+  }
+  
+  .section-subtitle {
+    font-size: 15px;
+  }
+  
+  /* Custom Cursor - Disable on touch devices */
+  .custom-cursor, .custom-cursor-ring {
+    display: none !important;
+  }
+  
+  body {
+    cursor: auto !important;
+  }
+  
+  /* Navigation & Hamburger */
+  .nav-links, .nav-cta {
+    display: none;
+  }
+  
+  .hamburger {
+    display: block;
+  }
+  
+  header {
+    height: 64px;
+  }
+  
+  .nav-container {
+    padding: 0 20px;
+  }
+  
+  /* Hero Section */
+  #hero {
+    height: calc(100vh - 64px);
+    margin-top: 64px;
+  }
+  
+  .hero-overlay {
+    width: 90%;
+    left: 5%;
+    top: 45%;
+  }
+  
+  .hero-title {
+    font-size: 36px;
+    margin-bottom: 16px;
+  }
+  
+  .hero-subtitle {
+    font-size: 15px;
+    margin-bottom: 24px;
+  }
+  
+  .hero-actions {
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 30px;
+  }
+  
+  .hero-actions .btn {
+    width: 100%;
+  }
+  
+  .hero-stats {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  
+  .scroll-indicator {
+    display: none;
+  }
+  
+  /* Services */
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .service-card {
+    padding: 30px;
+  }
+  
+  /* Srijan Case Study - Horizontal Scroll turns into vertical stack on mobile */
+  #case-study {
+    height: auto !important; /* Reset height for mobile */
+  }
+  
+  .pinned-container {
+    position: relative !important;
+    top: auto !important;
+    height: auto !important;
+    width: 100% !important;
+    overflow: visible !important;
+  }
+  
+  .case-study-header {
+    padding: 60px 20px 20px 20px;
+  }
+  
+  .horizontal-scroll-track {
+    display: flex;
+    flex-direction: column !important;
+    height: auto !important;
+    width: 100% !important;
+    transform: none !important;
+  }
+  
+  .case-panel {
+    width: 100% !important;
+    height: auto !important;
+    padding: 40px 20px !important;
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .problem-quote {
+    font-size: 22px;
+  }
+  
+  .solution-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .feature-check-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .browser-mockup {
+    height: 380px;
+  }
+  
+  .browser-body {
+    grid-template-columns: 1fr;
+  }
+  
+  .mock-sidebar {
+    display: none; /* Hide sidebar in mockup on mobile to save space */
+  }
+  
+  .mock-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .results-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .results-num {
+    font-size: 40px;
+  }
+  
+  /* Gallery */
+  .gallery-grid {
+    column-count: 1;
+  }
+  
+  /* Timeline */
+  .timeline-line {
+    left: 20px;
+  }
+  
+  .timeline-step {
+    flex-direction: row !important;
+    margin-bottom: 40px;
+  }
+  
+  .timeline-content-wrap {
+    width: calc(100% - 40px);
+    padding-left: 20px;
+  }
+  
+  .timeline-spacer {
+    display: none;
+  }
+  
+  .timeline-node {
+    left: 20px;
+    width: 32px;
+    height: 32px;
+  }
+  
+  /* Stats Counter */
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .stat-number {
+    font-size: 40px;
+  }
+  
+  /* About Kryto */
+  .about-team-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Testimonials */
+  .testimonial-card-wrap {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  
+  .testimonial-card {
+    padding: 30px 20px;
+  }
+  
+  /* Calendly placeholder */
+  .calendly-placeholder {
+    height: auto;
+    padding: 30px 20px;
+  }
+  
+  /* Forms */
+  .contact-form {
+    padding: 24px 16px;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  
+  /* Support Accordion */
+  .support-tab-btn {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+  
+  .urgency-group {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  /* Floats */
+  .whatsapp-float {
+    bottom: 16px;
+    right: 16px;
+  }
+  
+  .book-call-float {
+    bottom: 76px;
+    right: 16px;
+  }
+  
+  .scroll-top-float {
+    bottom: 16px;
+    left: 16px;
+    width: 36px;
+    height: 36px;
+  }
+}
