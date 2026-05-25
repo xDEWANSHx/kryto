@@ -419,3 +419,57 @@ textarea.form-control {
   resize: vertical;
   min-height: 120px;
 }
+
+/* --- THEME TOGGLE SWITCH BUTTON --- */
+.theme-toggle-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s var(--transition-ease);
+  position: relative;
+  overflow: hidden;
+  margin-right: 16px;
+  flex-shrink: 0;
+}
+
+.theme-toggle-btn:hover {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 12px rgba(124, 111, 247, 0.25);
+  transform: scale(1.05);
+}
+
+.theme-toggle-btn i {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.5s var(--transition-ease), opacity 0.3s;
+}
+
+/* Toggle sun/moon based on active class */
+body.light-theme .theme-toggle-btn .sun-icon {
+  transform: translateY(30px) rotate(90deg);
+  opacity: 0;
+  position: absolute;
+}
+
+body.light-theme .theme-toggle-btn .moon-icon {
+  transform: translateY(0) rotate(0);
+  opacity: 1;
+}
+
+body:not(.light-theme) .theme-toggle-btn .sun-icon {
+  transform: translateY(0) rotate(0);
+  opacity: 1;
+}
+
+body:not(.light-theme) .theme-toggle-btn .moon-icon {
+  transform: translateY(-30px) rotate(-90deg);
+  opacity: 0;
+  position: absolute;
+}

@@ -20,42 +20,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Scene variables
   let scene, camera, renderer, particleSystem, centralMesh, sceneGroup;
+  let coreSphere, wireframeSphere, ring1, ring2;
+  let ambientLight, particleMaterial;
   let deviceCards = [];
-  const mouse = new THREE.Vector2(-9999, -9999); // Offscreen initially
+  const mouse = new THREE.Vector2(0, 0); // Start at center
   const targetMouse = new THREE.Vector2(0, 0);
   const raycaster = new THREE.Raycaster();
-  let hoverTooltip;
-
-  // Orbit configuration
-  const numDevices = 5;
-  const orbitRadiusX = 3.8;
-  const orbitRadiusZ = 2.4;
-  const orbitRadiusY = 0.8;
+  let hasMouseMoved = false;
+  // Orbit configuration - Scaled down slightly to fit on the right side of the screen
+  const numDevices = 6;
+  const isMobile = window.innerWidth < 768;
+  const orbitRadiusX = isMobile ? 3.0 : 2.5;
+  const orbitRadiusZ = isMobile ? 1.8 : 1.6;
+  const orbitRadiusY = isMobile ? 0.6 : 0.5;
   let baseOrbitAngle = 0;
 
   // Performance parameters based on device
-  const isMobile = window.innerWidth < 768;
   const maxParticles = isMobile ? 200 : 800;
   const pixelRatioCap = isMobile ? 1 : Math.min(window.devicePixelRatio, 2);
-
-  // HTML Tooltip Setup
-  hoverTooltip = document.createElement('div');
-  hoverTooltip.style.position = 'fixed';
-  hoverTooltip.style.pointerEvents = 'none';
-  hoverTooltip.style.zIndex = '9999';
-  hoverTooltip.style.padding = '8px 16px';
-  hoverTooltip.style.background = 'rgba(20, 20, 20, 0.9)';
-  hoverTooltip.style.border = '1px solid rgba(124, 111, 247, 0.4)';
-  hoverTooltip.style.borderRadius = '6px';
-  hoverTooltip.style.fontFamily = "'Space Grotesk', sans-serif";
-  hoverTooltip.style.color = '#ffffff';
-  hoverTooltip.style.fontSize = '12px';
-  hoverTooltip.style.fontWeight = '600';
-  hoverTooltip.style.boxShadow = '0 10px 20px rgba(0,0,0,0.5)';
-  hoverTooltip.style.opacity = '0';
-  hoverTooltip.style.transition = 'opacity 0.2s';
-  hoverTooltip.innerHTML = 'View Work <span style="color:#4ecb8d">→</span>';
-  document.body.appendChild(hoverTooltip);
 
   try {
     init();
@@ -86,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderer.toneMappingExposure = 1.0;
 
     // 4. Lights
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+    ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
     scene.add(ambientLight);
 
     // Mouse follow glowing light
@@ -100,21 +82,63 @@ document.addEventListener('DOMContentLoaded', () => {
     staticLight.position.set(-4, 3, -2);
     scene.add(staticLight);
 
-    // 5. Central Logo/Shape Object
-    // Icosahedron: complex geometric sphere representing "core engine" of Kryto
-    const geometry = new THREE.IcosahedronGeometry(1.2, 1);
-    const material = new THREE.MeshPhysicalMaterial({
-      color: 0x7c6ff7,
-      metalness: 0.9,
-      roughness: 0.15,
-      clearcoat: 1.0,
-      clearcoatRoughness: 0.1,
-      transmission: 0.3, // Subtle glass refraction transparency
-      ior: 1.5,
-      thickness: 0.5,
-    });
-    centralMesh = new THREE.Mesh(geometry, material);
+    // 5. Central Logo/Shape Object - Premium Multi-layered Interactive Core
+    centralMesh = new THREE.Group();
     sceneGroup.add(centralMesh);
+
+    // Core refractive sphere
+    const coreGeo = new THREE.SphereGeometry(1.0, 64, 64);
+    const coreMat = new THREE.MeshPhysicalMaterial({
+      color: 0x7c6ff7,
+      emissive: 0x3b24d7,
+      emissiveIntensity: 1.2,
+      metalness: 0.1,
+      roughness: 0.1,
+      clearcoat: 1.0,
+      clearcoatRoughness: 0.05,
+      transmission: 0.6,
+      ior: 1.6,
+      thickness: 0.4,
+      transparent: true
+    });
+    coreSphere = new THREE.Mesh(coreGeo, coreMat);
+    centralMesh.add(coreSphere);
+
+    // Cyber wireframe outer mesh
+    const wireframeGeo = new THREE.SphereGeometry(1.06, 24, 24);
+    const wireframeMat = new THREE.MeshBasicMaterial({
+      color: 0x4ecb8d,
+      wireframe: true,
+      transparent: true,
+      opacity: 0.4,
+      blending: THREE.AdditiveBlending
+    });
+    wireframeSphere = new THREE.Mesh(wireframeGeo, wireframeMat);
+    centralMesh.add(wireframeSphere);
+
+    // Orbital rings
+    const ring1Geo = new THREE.TorusGeometry(1.35, 0.015, 16, 100);
+    const ring1Mat = new THREE.MeshBasicMaterial({
+      color: 0x7c6ff7,
+      transparent: true,
+      opacity: 0.65,
+      blending: THREE.AdditiveBlending
+    });
+    ring1 = new THREE.Mesh(ring1Geo, ring1Mat);
+    ring1.rotation.x = Math.PI / 4;
+    centralMesh.add(ring1);
+
+    const ring2Geo = new THREE.TorusGeometry(1.45, 0.015, 16, 100);
+    const ring2Mat = new THREE.MeshBasicMaterial({
+      color: 0x4ecb8d,
+      transparent: true,
+      opacity: 0.55,
+      blending: THREE.AdditiveBlending
+    });
+    ring2 = new THREE.Mesh(ring2Geo, ring2Mat);
+    ring2.rotation.y = Math.PI / 4;
+    ring2.rotation.x = -Math.PI / 6;
+    centralMesh.add(ring2);
 
     // 6. Particle Field Background
     const particleGeometry = new THREE.BufferGeometry();
@@ -135,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     particleGeometry.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
 
-    const particleMaterial = new THREE.PointsMaterial({
+    particleMaterial = new THREE.PointsMaterial({
       color: 0x7c6ff7,
       size: 0.04,
       transparent: true,
@@ -155,6 +179,35 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', onWindowResize);
     container.addEventListener('mousemove', onMouseMove);
     container.addEventListener('click', onCanvasClick);
+
+    // Set initial responsive position
+    adjustScenePosition();
+
+    // Set initial theme colors
+    updateThemeColors();
+
+    // Listen for theme changes
+    document.addEventListener('themeChanged', updateThemeColors);
+  }
+
+  function updateThemeColors() {
+    const isLight = document.body.classList.contains('light-theme');
+    
+    if (scene) {
+      // Update fog color matching background primary
+      const fogColor = isLight ? 0xf6f7fb : 0x080808;
+      scene.fog.color.setHex(fogColor);
+      
+      // Update ambient light intensity for better visibility in light theme
+      if (ambientLight) {
+        ambientLight.intensity = isLight ? 0.95 : 0.4;
+      }
+      
+      // Update particle material opacity
+      if (particleMaterial) {
+        particleMaterial.opacity = isLight ? 0.15 : 0.35; // Lower opacity in light mode to keep it subtle
+      }
+    }
   }
 
   // Helper to generate dynamic canvas texture
@@ -164,45 +217,15 @@ document.addEventListener('DOMContentLoaded', () => {
     canvas2d.height = 312;
     const ctx = canvas2d.getContext('2d');
 
-    // Content profiles for 5 cards
+    // Content profiles for 6 cards matching exactly the 6 portfolio services
     const configs = [
-      {
-        title: "Srijan Institute",
-        desc: "Enterprise Admin ERP",
-        colorBg: "#0d1b2a",
-        colorText: "#ffffff",
-        draw: (ctx) => {
-          // Draw sidebar admin panel layout mockup
-          ctx.fillStyle = "#1b263b";
-          ctx.fillRect(0, 0, 100, 312);
-          ctx.fillStyle = "#4ecb8d";
-          ctx.fillRect(10, 20, 80, 20); // Top sidebar item
-          
-          ctx.fillStyle = "#a0a0a0";
-          ctx.fillRect(15, 60, 70, 8);
-          ctx.fillRect(15, 80, 70, 8);
-          ctx.fillRect(15, 100, 70, 8);
-
-          // Dashboard stats
-          ctx.fillStyle = "#1e1e1e";
-          ctx.fillRect(120, 80, 100, 50);
-          ctx.fillRect(240, 80, 100, 50);
-          ctx.fillRect(360, 80, 130, 50);
-
-          ctx.fillStyle = "#7c6ff7";
-          ctx.font = "bold 16px sans-serif";
-          ctx.fillText("500+ Students", 130, 110);
-          ctx.fillStyle = "#4ecb8d";
-          ctx.fillText("₹ Fees Ok", 250, 110);
-        }
-      },
       {
         title: "Web Development",
         desc: "Custom Performance Apps",
-        colorBg: "#0d2218",
+        colorBg: "#0c1f15",
         colorText: "#ffffff",
         draw: (ctx) => {
-          // Web page browser layout
+          // Web page browser layout mockup
           ctx.fillStyle = "#141414";
           ctx.fillRect(0, 0, 512, 40); // Browser chrome
           ctx.fillStyle = "#ff5f56"; ctx.beginPath(); ctx.arc(20, 20, 6, 0, Math.PI*2); ctx.fill();
@@ -214,70 +237,121 @@ document.addEventListener('DOMContentLoaded', () => {
           ctx.strokeRect(30, 70, 140, 160); // Wireframe box
           ctx.strokeRect(190, 70, 290, 80);
           ctx.strokeRect(190, 170, 290, 60);
+          
+          ctx.fillStyle = "rgba(78, 203, 141, 0.2)";
+          ctx.fillRect(30, 70, 140, 160);
         }
       },
       {
-        title: "Mobile Apps",
-        desc: "iOS & Android Handcrafted",
-        colorBg: "#1a0d2e",
+        title: "App Development",
+        desc: "iOS & Android Native",
+        colorBg: "#160a26",
         colorText: "#ffffff",
         draw: (ctx) => {
           // Phone outline in center
           ctx.strokeStyle = "rgba(124, 111, 247, 0.5)";
           ctx.lineWidth = 4;
-          ctx.strokeRect(180, 50, 150, 240); // Phone Bezel
-          ctx.fillStyle = "#7c6ff7";
-          ctx.fillRect(195, 70, 120, 40); // Stat cards
-          ctx.fillStyle = "#4ecb8d";
-          ctx.fillRect(195, 125, 120, 30);
-          ctx.fillStyle = "#fff";
-          ctx.fillRect(195, 170, 120, 8);
-          ctx.fillRect(195, 185, 120, 8);
-        }
-      },
-      {
-        title: "Photo & Video",
-        desc: "Cinematic Post-Production",
-        colorBg: "#1a0a00",
-        colorText: "#ffffff",
-        draw: (ctx) => {
-          // Film strip graphic
-          ctx.fillStyle = "#111111";
-          ctx.fillRect(0, 220, 512, 60);
-          for(let i=10; i<512; i+=40) {
-            ctx.fillStyle = "#333333";
-            ctx.fillRect(i, 235, 20, 30); // Film sprockets
-          }
-          // Gradient curves simulating color wheels
-          ctx.fillStyle = "#f07a3a";
-          ctx.fillRect(50, 70, 120, 120);
-          ctx.strokeStyle = "#ffffff";
-          ctx.lineWidth = 1;
-          ctx.strokeRect(50, 70, 120, 120);
-        }
-      },
-      {
-        title: "Modern Redesigns",
-        desc: "Conversion-Focused UX",
-        colorBg: "#001a1a",
-        colorText: "#ffffff",
-        draw: (ctx) => {
-          // Split screen
-          ctx.fillStyle = "#000a0a";
-          ctx.fillRect(0, 0, 256, 312); // Left dark (outdated)
-          ctx.fillStyle = "#002a2a";
-          ctx.fillRect(256, 0, 256, 312); // Right light (modern)
+          ctx.strokeRect(180, 50, 152, 240); // Phone Bezel
           
-          ctx.strokeStyle = "rgba(78, 203, 141, 0.5)";
+          ctx.fillStyle = "#7c6ff7";
+          ctx.fillRect(195, 70, 122, 40); // Stat cards
+          ctx.fillStyle = "#4ecb8d";
+          ctx.fillRect(195, 125, 122, 30);
+          ctx.fillStyle = "#fff";
+          ctx.fillRect(195, 170, 122, 8);
+          ctx.fillRect(195, 185, 122, 8);
+        }
+      },
+      {
+        title: "UI/UX Redesigning",
+        desc: "High-Conversion Redesigns",
+        colorBg: "#081a24",
+        colorText: "#ffffff",
+        draw: (ctx) => {
+          // Split screen comparison layout
+          ctx.fillStyle = "#040d12";
+          ctx.fillRect(0, 0, 256, 312); // Left dark
+          ctx.fillStyle = "#0c2836";
+          ctx.fillRect(256, 0, 256, 312); // Right light
+          
+          ctx.strokeStyle = "rgba(124, 111, 247, 0.4)";
           ctx.beginPath();
           ctx.moveTo(256, 0);
           ctx.lineTo(256, 312);
           ctx.stroke();
 
-          ctx.fillStyle = "rgba(255, 95, 86, 0.4)";
+          ctx.fillStyle = "rgba(255, 95, 86, 0.3)";
           ctx.fillRect(30, 80, 180, 20); // Old clunky layout
-          ctx.fillStyle = "rgba(78, 203, 141, 0.8)";
-          ctx.fillRect(290, 80, 190, 40); // Fresh neat UI
+          ctx.fillStyle = "rgba(78, 203, 141, 0.7)";
+          ctx.fillRect(290, 80, 190, 40); // Polished redesign UI
+        }
+      },
+      {
+        title: "Photo Editing",
+        desc: "Frequency Retouch & Grade",
+        colorBg: "#1c0d03",
+        colorText: "#ffffff",
+        draw: (ctx) => {
+          // Color wheel graphic mockup
+          ctx.strokeStyle = "#f07a3a";
+          ctx.lineWidth = 4;
+          ctx.beginPath();
+          ctx.arc(256, 150, 70, 0, Math.PI * 2);
+          ctx.stroke();
+          
+          // Color sectors
+          ctx.fillStyle = "rgba(240, 122, 58, 0.4)";
+          ctx.beginPath();
+          ctx.moveTo(256, 150);
+          ctx.arc(256, 150, 68, 0, Math.PI / 2);
+          ctx.fill();
+          
+          ctx.fillStyle = "rgba(78, 203, 141, 0.4)";
+          ctx.beginPath();
+          ctx.moveTo(256, 150);
+          ctx.arc(256, 150, 68, Math.PI, Math.PI * 1.5);
+          ctx.fill();
+        }
+      },
+      {
+        title: "Video Editing",
+        desc: "Cinematic Cut & Grade",
+        colorBg: "#210410",
+        colorText: "#ffffff",
+        draw: (ctx) => {
+          // Cinema aspect mockup
+          ctx.fillStyle = "#0c0108";
+          ctx.fillRect(0, 0, 512, 35);
+          ctx.fillRect(0, 277, 512, 35);
+
+          // Audio track waveform visualizer mockup
+          ctx.fillStyle = "#f07a3a";
+          for (let i = 40; i < 480; i += 12) {
+            const h = Math.abs(Math.sin(i * 0.05)) * 80 + 10;
+            ctx.fillRect(i, 156 - h / 2, 6, h);
+          }
+        }
+      },
+      {
+        title: "Enterprise Systems",
+        desc: "Scalable Administrative ERPs",
+        colorBg: "#121212",
+        colorText: "#ffffff",
+        draw: (ctx) => {
+          // Srijan database cylinder layout and analytical bars
+          ctx.strokeStyle = "#4ecb8d";
+          ctx.lineWidth = 3;
+          ctx.strokeRect(30, 80, 140, 150); // DB frame
+          
+          // Analytical stats charts inside system mockup
+          ctx.fillStyle = "#1e1e1e";
+          ctx.fillRect(200, 80, 280, 45);
+          ctx.fillRect(200, 140, 280, 45);
+          
+          ctx.fillStyle = "#4ecb8d";
+          ctx.font = "bold 14px sans-serif";
+          ctx.fillText("✓ 100% Fully Connected", 220, 108);
+          ctx.fillText("✓ Automatic Fee Reports", 220, 168);
         }
       }
     ];
@@ -352,7 +426,7 @@ document.addEventListener('DOMContentLoaded', () => {
         hoverOffset: 0,
         targetHoverOffset: 0,
         targetScale: 1,
-        title: ["Srijan ERP", "Web Dev", "Mobile Apps", "Photo/Video", "UX Redesign"][i]
+        title: ["Web Dev", "Mobile Apps", "UI/UX Redesign", "Photo Edit", "Video Edit", "Enterprise Systems"][i]
       };
 
       deviceCards.push(group);
@@ -363,9 +437,21 @@ document.addEventListener('DOMContentLoaded', () => {
     camera.aspect = container.clientWidth / container.clientHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(container.clientWidth, container.clientHeight);
+    adjustScenePosition();
+  }
+
+  function adjustScenePosition() {
+    if (window.innerWidth >= 1200) {
+      sceneGroup.position.set(2.2, -0.2, 0); // Shipped to the right, slightly down for perfect balance
+    } else if (window.innerWidth >= 768) {
+      sceneGroup.position.set(1.6, -0.2, 0);
+    } else {
+      sceneGroup.position.set(0, -0.6, 0); // Centered on mobile, slightly lower to clear title
+    }
   }
 
   function onMouseMove(e) {
+    hasMouseMoved = true;
     const rect = canvas.getBoundingClientRect();
     // Normalize coordinates -1 to +1
     targetMouse.x = ((e.clientX - rect.left) / container.clientWidth) * 2 - 1;
@@ -402,100 +488,144 @@ document.addEventListener('DOMContentLoaded', () => {
   function animate() {
     requestAnimationFrame(animate);
 
-    // Smooth mouse coordinate interpolation
-    mouse.x += (targetMouse.x - mouse.x) * 0.1;
-    mouse.y += (targetMouse.y - mouse.y) * 0.1;
+    // Smooth mouse coordinate interpolation (only track if moved to avoid -9999 initialization jump)
+    if (hasMouseMoved) {
+      mouse.x += (targetMouse.x - mouse.x) * 0.1;
+      mouse.y += (targetMouse.y - mouse.y) * 0.1;
 
-    // 1. Move point light to track mouse
-    if (scene.userData.mouseLight) {
-      const vector = new THREE.Vector3(mouse.x, mouse.y, 0.5);
-      vector.unproject(camera);
-      const dir = vector.sub(camera.position).normalize();
-      const distance = -camera.position.z / dir.z;
-      const pos = camera.position.clone().add(dir.multiplyScalar(distance * 0.7));
-      scene.userData.mouseLight.position.copy(pos);
+      // 1. Move point light to track mouse
+      if (scene.userData.mouseLight) {
+        const vector = new THREE.Vector3(mouse.x, mouse.y, 0.5);
+        vector.unproject(camera);
+        const dir = vector.sub(camera.position).normalize();
+        const distance = -camera.position.z / dir.z;
+        const pos = camera.position.clone().add(dir.multiplyScalar(distance * 0.7));
+        scene.userData.mouseLight.position.copy(pos);
+      }
+
+      // 2. Parallax rotation on entire scene
+      sceneGroup.rotation.y += (mouse.x * 0.15 - sceneGroup.rotation.y) * 0.05;
+      sceneGroup.rotation.x += (-mouse.y * 0.1 - sceneGroup.rotation.x) * 0.05;
+    } else {
+      // Smooth return/stay at flat alignment
+      sceneGroup.rotation.y += (0 - sceneGroup.rotation.y) * 0.05;
+      sceneGroup.rotation.x += (0 - sceneGroup.rotation.x) * 0.05;
     }
 
-    // 2. Parallax rotation on entire scene
-    sceneGroup.rotation.y += (mouse.x * 0.15 - sceneGroup.rotation.y) * 0.05;
-    sceneGroup.rotation.x += (-mouse.y * 0.1 - sceneGroup.rotation.x) * 0.05;
-
-    // 3. Central mesh self rotation
+    // 3. Central mesh self rotation & core animations - Slowed down significantly for a premium majestic glide
     if (centralMesh) {
-      centralMesh.rotation.y += 0.003;
-      centralMesh.rotation.x += 0.001;
+      centralMesh.rotation.y += 0.0006;
+      centralMesh.rotation.x += 0.0003;
+    }
+    if (wireframeSphere) {
+      wireframeSphere.rotation.y -= 0.0012;
+      wireframeSphere.rotation.x -= 0.0006;
+    }
+    if (ring1) {
+      ring1.rotation.z += 0.002;
+    }
+    if (ring2) {
+      ring2.rotation.z -= 0.0012;
+      ring2.rotation.y += 0.0006;
     }
 
     // 4. Background particle slow spin
     if (particleSystem) {
-      particleSystem.rotation.y += 0.0002;
+      particleSystem.rotation.y += 0.0001;
     }
 
     // 5. Update Orbiting Cards
     if (!isMobile) {
-      baseOrbitAngle -= 0.0025; // Continuous orbit spin
+      // Check if mouse is hovering specifically over the globe/frames section (right half of the screen)
+      const isOverGlobeSection = hasMouseMoved && mouse.x >= 0.0 && mouse.x <= 1.0;
 
-      // Raycast to check hover
-      raycaster.setFromCamera(mouse, camera);
-      const intersectObjects = deviceCards.map(group => group.children[0]);
-      const intersects = raycaster.intersectObjects(intersectObjects);
-
-      let hoveredGroupIndex = -1;
-      if (intersects.length > 0) {
-        const hitMesh = intersects[0].object;
-        const parent = hitMesh.parent;
-        if (parent) hoveredGroupIndex = parent.userData.index;
+      // Calculate dynamic speed based on relative mouse x position inside the globe's square bounds
+      let dynamicOrbitSpeed = 0.0008;
+      if (isOverGlobeSection) {
+        // Globe center screen X is around 0.5. Normalize relative displacement to range -1.0 to 1.0
+        const relativeX = Math.max(-1.0, Math.min(1.0, (mouse.x - 0.55) * 2.5));
+        const interactionSpeed = Math.abs(relativeX) * 0.006;
+        dynamicOrbitSpeed = 0.0008 + interactionSpeed;
+        
+        // Direction matches cursor side relative to the globe center
+        if (relativeX > 0) {
+          baseOrbitAngle += dynamicOrbitSpeed;
+        } else {
+          baseOrbitAngle -= dynamicOrbitSpeed;
+        }
+      } else {
+        // Default graceful leftward glide when mouse is outside the globe section
+        baseOrbitAngle -= 0.0008;
       }
 
-      deviceCards.forEach((group, idx) => {
-        const data = group.userData;
-        
-        // Handle hovering values
-        if (idx === hoveredGroupIndex) {
-          data.targetHoverOffset = 0.8;
-          data.targetScale = 1.22;
+      // Raycast to check hover - ONLY active when mouse is inside the globe section
+      if (isOverGlobeSection) {
+        raycaster.setFromCamera(mouse, camera);
+        const intersectObjects = deviceCards.map(group => group.children[0]);
+        const intersects = raycaster.intersectObjects(intersectObjects);
+
+        let hoveredGroupIndex = -1;
+        if (intersects.length > 0) {
+          const hitMesh = intersects[0].object;
+          const parent = hitMesh.parent;
+          if (parent) hoveredGroupIndex = parent.userData.index;
+        }
+
+        deviceCards.forEach((group, idx) => {
+          const data = group.userData;
           
-          // Position tooltip near cursor
-          const screenX = ((mouse.x + 1) / 2) * window.innerWidth;
-          const screenY = (-(mouse.y - 1) / 2) * window.innerHeight;
-          hoverTooltip.style.left = `${screenX + 15}px`;
-          hoverTooltip.style.top = `${screenY + 15}px`;
-          hoverTooltip.style.opacity = '1';
-        } else {
-          data.targetHoverOffset = 0;
-          data.targetScale = 1;
-        }
+          // Handle hovering values
+          if (idx === hoveredGroupIndex) {
+            data.targetHoverOffset = 0.8;
+            data.targetScale = 1.22;
+          } else {
+            data.targetHoverOffset = 0;
+            data.targetScale = 1;
+          }
 
-        // Hide tooltip if nothing hovered
-        if (hoveredGroupIndex === -1) {
-          hoverTooltip.style.opacity = '0';
-        }
+          // Interpolate hover values (lerp)
+          data.hoverOffset += (data.targetHoverOffset - data.hoverOffset) * 0.1;
+          const currentScale = group.scale.x;
+          const newScale = currentScale + (data.targetScale - currentScale) * 0.1;
+          group.scale.set(newScale, newScale, newScale);
 
-        // Interpolate hover values (lerp)
-        data.hoverOffset += (data.targetHoverOffset - data.hoverOffset) * 0.1;
-        const currentScale = group.scale.x;
-        const newScale = currentScale + (data.targetScale - currentScale) * 0.1;
-        group.scale.set(newScale, newScale, newScale);
+          // Map ellipse formula
+          const angle = baseOrbitAngle + data.angleOffset;
+          
+          // Normal base position
+          const baseX = Math.cos(angle) * orbitRadiusX;
+          const baseY = Math.sin(angle * 0.4) * orbitRadiusY;
+          const baseZ = Math.sin(angle) * orbitRadiusZ;
 
-        // Map ellipse formula
-        const angle = baseOrbitAngle + data.angleOffset;
-        
-        // Normal base position
-        const baseX = Math.cos(angle) * orbitRadiusX;
-        const baseY = Math.sin(angle * 0.4) * orbitRadiusY;
-        const baseZ = Math.sin(angle) * orbitRadiusZ;
+          // Apply forward hover push
+          const radialVector = new THREE.Vector3(baseX, baseY, baseZ).normalize();
+          const finalX = baseX + radialVector.x * data.hoverOffset;
+          const finalY = baseY + radialVector.y * data.hoverOffset;
+          const finalZ = baseZ + radialVector.z * data.hoverOffset;
 
-        // Apply forward hover push
-        const radialVector = new THREE.Vector3(baseX, baseY, baseZ).normalize();
-        const finalX = baseX + radialVector.x * data.hoverOffset;
-        const finalY = baseY + radialVector.y * data.hoverOffset;
-        const finalZ = baseZ + radialVector.z * data.hoverOffset;
+          group.position.set(finalX, finalY, finalZ);
 
-        group.position.set(finalX, finalY, finalZ);
+          // Face camera smoothly
+          group.lookAt(camera.position);
+        });
+      } else {
+        // Just position cards statically/gracefully without any hover checks until mouse enters the globe square
+        deviceCards.forEach((group, idx) => {
+          const data = group.userData;
+          data.hoverOffset += (0 - data.hoverOffset) * 0.1;
+          const currentScale = group.scale.x;
+          const newScale = currentScale + (1 - currentScale) * 0.1;
+          group.scale.set(newScale, newScale, newScale);
 
-        // Face camera smoothly
-        group.lookAt(camera.position);
-      });
+          const angle = baseOrbitAngle + data.angleOffset;
+          const baseX = Math.cos(angle) * orbitRadiusX;
+          const baseY = Math.sin(angle * 0.4) * orbitRadiusY;
+          const baseZ = Math.sin(angle) * orbitRadiusZ;
+
+          group.position.set(baseX, baseY, baseZ);
+          group.lookAt(camera.position);
+        });
+      }
     }
 
     renderer.render(scene, camera);

@@ -109,4 +109,37 @@ document.addEventListener('DOMContentLoaded', () => {
       sectionObserver.observe(section);
     }
   });
+
+  // --- 4. THEME TOGGLE SCRIPT (DARK/LIGHT MODE) ---
+  const themeToggle = document.getElementById('theme-toggle');
+  const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+  
+  // Check localStorage for saved theme preference
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'light') {
+    document.body.classList.add('light-theme');
+  }
+
+  function toggleTheme() {
+    document.body.classList.toggle('light-theme');
+    
+    const isLight = document.body.classList.contains('light-theme');
+    // Save to localStorage
+    if (isLight) {
+      localStorage.setItem('theme', 'light');
+    } else {
+      localStorage.setItem('theme', 'dark');
+    }
+
+    // Dispatch custom event for dynamic components to update
+    const event = new CustomEvent('themeChanged', { detail: { theme: isLight ? 'light' : 'dark' } });
+    document.dispatchEvent(event);
+  }
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', toggleTheme);
+  }
+  if (themeToggleMobile) {
+    themeToggleMobile.addEventListener('click', toggleTheme);
+  }
 });

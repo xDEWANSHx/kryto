@@ -16,12 +16,31 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollWheelZoom: false
       });
 
-      // Add CartoDB Dark Matter tile layer for premium visual continuity
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-        subdomains: 'abcd',
-        maxZoom: 20
-      }).addTo(map);
+      // Dynamic map theme handling using CartoDB layers
+      let currentTileLayer;
+
+      function updateMapTheme() {
+        const isLight = document.body.classList.contains('light-theme');
+        const tileUrl = isLight 
+          ? 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'
+          : 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png';
+        
+        if (currentTileLayer) {
+          map.removeLayer(currentTileLayer);
+        }
+        
+        currentTileLayer = L.tileLayer(tileUrl, {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+          subdomains: 'abcd',
+          maxZoom: 20
+        }).addTo(map);
+      }
+
+      // Initial tile layer setup
+      updateMapTheme();
+
+      // Listen for runtime theme toggle events
+      document.addEventListener('themeChanged', updateMapTheme);
 
       // Create Custom Violet Glowing Marker
       const violetIcon = L.divIcon({

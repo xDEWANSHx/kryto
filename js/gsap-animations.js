@@ -14,56 +14,27 @@ document.addEventListener('DOMContentLoaded', () => {
   const mm = gsap.matchMedia();
 
   // --- 1. ON-LOAD ANIMATIONS (HERO SECTION) ---
-  const heroTl = gsap.timeline({ defaults: { ease: "power4.out" } });
+  const heroTl = gsap.timeline({ defaults: { ease: "power2.out" } });
 
-  // Fade down navigation bar
+  // Fade down navigation bar smoothly
   heroTl.from("header", {
-    y: -30,
+    y: -20,
     opacity: 0,
-    duration: 1.0,
-    delay: 0.2
+    duration: 1.2,
+    delay: 0.1
   });
 
-  // Stagger hero text elements (H1, Subtitle)
-  heroTl.from(".hero-tag", {
-    y: 20,
+  // Fade in the hero text overlay smoothly (all together, avoiding fast stagger jumps)
+  heroTl.from(".hero-overlay", {
     opacity: 0,
-    duration: 0.8
-  }, "-=0.6");
-
-  // Word/Line slide up effect for title
-  heroTl.from(".hero-title", {
-    y: 30,
-    opacity: 0,
-    duration: 1.0
-  }, "-=0.6");
-
-  heroTl.from(".hero-subtitle", {
-    y: 20,
-    opacity: 0,
-    duration: 0.8
+    y: 15,
+    duration: 1.5
   }, "-=0.8");
 
-  // Scale in hero action buttons
-  heroTl.from(".hero-actions .btn", {
-    scale: 0.9,
-    opacity: 0,
-    stagger: 0.15,
-    duration: 0.6
-  }, "-=0.6");
-
-  // Stagger stats counter row
-  heroTl.from(".hero-stat-item", {
-    y: 15,
-    opacity: 0,
-    stagger: 0.1,
-    duration: 0.6
-  }, "-=0.4");
-
-  // Fade in Three.js hero canvas
+  // Fade in Three.js hero canvas smoothly
   heroTl.from("#hero-canvas", {
     opacity: 0,
-    duration: 1.5
+    duration: 2.0
   }, "0");
 
   // --- 2. GLOBAL SECTION HEADERS FADE ---

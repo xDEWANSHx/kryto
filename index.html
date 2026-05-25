@@ -28,6 +28,11 @@
   <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
+  <script>
+    if (localStorage.getItem('theme') === 'light') {
+      document.body.classList.add('light-theme');
+    }
+  </script>
 
   <!-- ================= SECTION 1: HEADER & NAVIGATION ================= -->
   <header id="sticky-header">
@@ -47,6 +52,10 @@
       </nav>
 
       <div class="nav-cta">
+        <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Color Theme">
+          <i data-lucide="sun" class="sun-icon"></i>
+          <i data-lucide="moon" class="moon-icon"></i>
+        </button>
         <a href="#contact" class="btn btn-primary btn-sm">Let's Talk</a>
       </div>
 
@@ -69,7 +78,13 @@
       <a href="#about" class="mobile-nav-link">About</a>
       <a href="#contact" class="mobile-nav-link">Contact</a>
     </nav>
-    <a href="#contact" class="btn btn-primary">Let's Talk</a>
+    <div style="display:flex; align-items:center; gap: 16px; margin-top: 20px;">
+      <button class="theme-toggle-btn" id="theme-toggle-mobile" aria-label="Toggle Color Theme" style="margin-right: 0;">
+        <i data-lucide="sun" class="sun-icon"></i>
+        <i data-lucide="moon" class="moon-icon"></i>
+      </button>
+      <a href="#contact" class="btn btn-primary">Let's Talk</a>
+    </div>
   </div>
 
   <!-- ================= SECTION 2: HERO SECTION ================= -->

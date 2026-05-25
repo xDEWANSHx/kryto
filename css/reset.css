@@ -29,6 +29,17 @@
   --transition-ease: cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
+/* --- LIGHT MODE VARIABLE OVERRIDES --- */
+body.light-theme {
+  --bg-primary: #f6f7fb;       /* Soft light background */
+  --bg-secondary: #eceef4;     /* Slightly darker light background */
+  --bg-card: #ffffff;          /* Pure white card panel backgrounds */
+  --border-color: #e0e3eb;     /* Crisp light border lines */
+  --text-primary: #0f1016;     /* Near-black deep readable text */
+  --text-secondary: #4b4e5b;   /* Sleek slate grey body text */
+  --text-muted: #9094a6;       /* Muted grey for sub-details */
+}
+
 /* Box-sizing Reset */
 *, *::before, *::after {
   box-sizing: border-box;
